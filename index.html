@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahadevan KH - Digital Accessibility Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d3b66;
+            --secondary: #f0c808;
+            --accent: #2a9d8f;
+            --light: #f8f9fc;
+            --dark: #333;
+            --dark-gray: #444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 25px 40px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-content {
+            margin-left: 15px;
+        }
+        
+        /* Core Competencies Grid */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+        
+        .competency-card {
+            background: var(--light);
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .competency-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Work Experience */
+        .job {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #eaeaea;
+        }
+        
+        .job:last-child {
+            margin-bottom: 0;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            margin: 8px 0 15px;
+            gap: 5px;
+        }
+        
+        .company-name {
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .company-logo {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        
+        .company-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .company-link:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .job-details {
+            display: flex;
+            gap: 20px;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        
+        .job-detail {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .job-description {
+            margin-top: 12px;
+        }
+        
+        .job-bullet {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        
+        /* Certifications */
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        .cert-badge {
+            background: #e6f0ff;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 500;
+            color: var(--primary);
+            border: 1px solid #c2d6ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Contributions */
+        .contributions-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .contributions-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .contributions-list li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #AA6C39;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            background: var(--light);
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header, .section {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .competencies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-details {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="name">SAHADEVAN KH</h1>
+            <div class="title">Digital Accessibility Engineer</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="tel:+919884101123" class="contact-link">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <span>+91 9884101123</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:sahadevankh@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>sahadevankh@gmail.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://linkedin.com/in/sahadevankh" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <span>Sahadevan kh LinkedIn Profile</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://maps.google.com/?q=Kochi,Kerala,India" target="_blank" class="contact-link">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span>Kochi, Kerala, India</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user" aria-hidden="true"></i>
+                PROFESSIONAL SUMMARY
+            </h2>
+            <div class="section-content">
+                <p>I am a passionate Digital Accessibility Engineer with 6+ years of hands-on experience championing inclusive digital experiences across web and mobile platforms. Deeply committed to creating barrier-free technology, I specialize in accessibility testing aligned with WCAG standards, leveraging both manual techniques and assistive technologies. I've had the privilege of working with high-impact clients, where I not only ensured compliance but also empowered teams through accessibility training, proactive collaboration, and advocacy for inclusive design from ideation to deployment.</p>
+            </div>
+        </section>
+        
+        <!-- Core Competencies -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-cogs" aria-hidden="true"></i>
+                CORE COMPETENCIES
+            </h2>
+            <div class="competencies-grid">
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        WCAG 2.1 / 2.2 (A & AA)
+                    </h3>
+                    <div>Practical experience ensuring performance across web and mobile platforms.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-tools" aria-hidden="true"></i>
+                        Automation Tools
+                    </h3>
+                    <div>Proficient in Axe DevTools, Accessibility Insights, ANDI, ARC, IBM Equal Access Accessibility Checker and Wave.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-assistive-listening-systems" aria-hidden="true"></i>
+                        Assistive Technologies
+                    </h3>
+                    <div>Expertise in screen readers NVDA, JAWS, Narrator, VoiceOver, and TalkBack.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                        Mobile & Web Accessibility
+                    </h3>
+                    <div>Accessibility testing for iOS, Android, web apps, and desktop (Windows/macOS), including PDF, accessible documents and email.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-code" aria-hidden="true"></i>
+                        Design System Accessibility
+                    </h3>
+                    <div>Working knowledge of HTML5, semantic HTML, ARIA, & CSS, and expertise in ARIA roles, color contrast, keyboard focus, and accessible navigation.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-wrench" aria-hidden="true"></i>
+                        Tool set
+                    </h3>
+                    <div>Jira, Confluence, and Figma for tracking, collaboration, and accessible design.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-terminal" aria-hidden="true"></i>
+                        Axe DevTools Linter
+                    </h3>
+                    <div>Validated accessibility issues early by integrating automated testing tools within IDEs, GitHub, Jenkins, SonarQube, and CI/CD pipelines—ensuring inaccessible code is flagged before deployment.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        Global Standards
+                    </h3>
+                    <div>Familiar with ADA, Section 508, and EN 301 549 (EU) accessibility laws. Experienced in VPAT creation for documenting conformance.</div>
+                </div>
+                <div class="competency-card">
+                    <h3 class="competency-title">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+                        Agile Integration
+                    </h3>
+                    <div>Active in sprint planning, triage, and Change request reviews for accessibility inclusion.</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Work Experience -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase" aria-hidden="true"></i>
+                WORK EXPERIENCE
+            </h2>
+            
+            <!-- Senior Digital Accessibility Engineer -->
+            <div class="job">
+                <h3 class="job-title">
+                    <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    Senior Digital Accessibility Engineer
+                </h3>
+                <div class="company-info">
+                    <div class="company-name">
+                        <span class="company-logo" aria-hidden="true">
+                            <i class="fas fa-building"></i>
+                        </span>
+                        <a href="https://www.cognizant.com" target="_blank" class="company-link">Cognizant Technology Solutions</a> | 
+                        Client: <a href="https://www.albertsonscompanies.com" target="_blank" class="company-link">Albertsons Companies</a>
+                    </div>
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+							<span class="sr-only" >Currently employed since October 2022. The job is based in Kochi, India.</span>
+                            <span aria-hidden="true">October 2022 - Present | Kochi, India.</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Cognizant Technology Solutions is a leading professional services company providing IT, digital, technology, consulting, and operations services globally.</p>
+                <div class="job-description">
+                    <ul>
+                        <li class="job-bullet">Conducted comprehensive accessibility audits, validations, and regression testing for desktop websites, mobile web applications, and native mobile apps.</li>
+                        <li class="job-bullet">Championed accessibility initiatives for the <strong>Account & Identity</strong> and <strong>Schedule & Save</strong> teams, ensuring WCAG compliance throughout the development lifecycle.</li>
+                        <li class="job-bullet">Executed component-level testing across web and <strong>UMA platforms</strong> and supported UMA accessibility validations during biannual production cycles.</li>
+                        <li class="job-bullet">Performed in-depth testing using assistive technologies, including <strong>NVDA</strong>, <strong>JAWS</strong>, <strong>Narrator</strong> (desktop) and <strong>Voiceover</strong>, <strong>Talk Back</strong> (mobile), across Windows.</li>
+                        <li class="job-bullet">Actively logged, tracked, audited, and triaged accessibility defects in Jira, providing clear descriptions, suggestive fixes, and collaborating closely with developers for remediation.</li>
+                        <li class="job-bullet">Applied <strong>WAI-ARIA roles</strong>, <strong>properties</strong>, and <strong>patterns</strong> to enhance accessibility for dynamic web content and complex UI components.</li>
+                        <li class="job-bullet">Collaborated with cross-functional teams including developers, product managers, UX/UI designers, and QA engineers to integrate accessibility early in the grooming sessions.</li>
+                        <li class="job-bullet">Provided proactive accessibility recommendations during POD call, fostering inclusive design from the planning stage.</li>
+                        <li class="job-bullet">Documented ADA implementation notes in Figma and embedded them within development stories to support accessible design and execution.</li>
+                        <li class="job-bullet">Prepared and shared Daily Status Reports (DSRs) to ensure visibility into testing progress, blockers, and overall defect status.</li>
+                        <li class="job-bullet">Reviewed and validated new and re-used UI templates in the <strong>Pantry module</strong> to ensure accessibility compliance.</li>
+                        <li class="job-bullet">Improved accessibility and reusability of <strong>DST components</strong> in alignment with ADA standards.</li>
+                        <li class="job-bullet">Designed and delivered training sessions for developers and QA engineers to address common accessibility issues and introduce early remediation strategies.</li>
+                        <li class="job-bullet">Customized the JIRA dashboard to align with project-specific requirements.</li>
+                        <li class="job-bullet">Facilitated defect triage sessions to prioritize and resolve severity accessibility defects efficiently and collaboratively.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Senior Accessibility Test Specialist -->
+            <div class="job">
+                <h3 class="job-title">
+                    <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    Senior Accessibility Test Specialist
+                </h3>
+                <div class="company-info">
+                    <div class="company-name">
+                        <span class="company-logo" aria-hidden="true">
+                            <i class="fab fa-ibm"></i>
+                        </span>
+                        <a href="https://www.ibm.com" target="_blank" class="company-link">IBM</a> | 
+                        Client: <a href="https://www.bell.ca" target="_blank" class="company-link">Bell Canada</a> & 
+                        <a href="https://www.thesource.ca" target="_blank" class="company-link">The Source</a>
+                    </div>
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+							<span class="sr-only" >Employed from May 2021 to October 2022. The job was based in Bangalore, India.</span>
+                            <span aria-hidden="true">May 2021 - October 2022 | Bangalore, India.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li class="job-bullet">Performed accessibility testing across web, iOS, Android, PDFs, and Word documents using JAWS, NVDA, Voiceover, Talk Back, and manual techniques in various browser-screen reader combinations.</li>
+                        <li class="job-bullet">Logged and tracked issues using JIRA and TFS, provided suggestive fixes, and worked closely with developers to ensure proper remediation and user impact understanding.</li>
+                        <li class="job-bullet">Led a team of 3 testers for 'The Source' project, managed sprint deliverables, and collaborated in Agile ceremonies including stand-ups, sprint planning, and retrospectives.</li>
+                        <li class="job-bullet">Conducted accessibility knowledge-sharing sessions, trained freshers on WCAG/WAI-ARIA, and participated in defect triage meetings and report reviews.</li>
+                        <li class="job-bullet">Executed sanity and regression testing post-deployment, reviewed Change Requests (CRs) for accessibility impact, and ensured fixes were reflected in production.</li>
+                        <li class="job-bullet">Successfully contributed to multiple Proofs of Concept (POCs), demonstrating innovative solutions for accessibility compliance and UI enhancements.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Senior Software Engineer -->
+            <div class="job">
+                <h3 class="job-title">
+                    <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    Senior Software Engineer
+                </h3>
+                <div class="company-info">
+                    <div class="company-name">
+                        <span class="company-logo" aria-hidden="true">
+                            <i class="fas fa-building"></i>
+                        </span>
+                        <a href="https://www.hcltech.com" target="_blank" class="company-link">HCLTech</a> | 
+                        Client: <a href="https://www.microsoft.com" target="_blank" class="company-link">Microsoft</a>
+                    </div>
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+							<span class="sr-only" >Employed from October 2020 to May 2021. The job was based in Hyderabad, India.</span>
+                            <span aria-hidden="true">October 2020 - May 2021 | Hyderabad, India.</span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li class="job-bullet">Performed accessibility testing on web (desktop & mobile), native applications, Word & PDF documents using tools like JAWS, NVDA, Narrator, Voiceover, and Talk Back, across multiple platforms.</li>
+                        <li class="job-bullet">Logged and tracked accessibility defects using Azure DevOps (ADO) and Excel as per project requirements, and supported ad-hoc testing as needed.</li>
+                        <li class="job-bullet">Provided suggestive fixes and collaborated with developers to explain user impact and ensure proper remediation.</li>
+                        <li class="job-bullet">Mentored new joiners on WCAG and MAS, resolving queries and guiding them on assistive technology usage and testing methodology.</li>
+                        <li class="job-bullet">Contributed to lead-level activities such as bug reviews, client calls, closure report preparation.</li>
+                        <li class="job-bullet">Created screen documents to initiate structured testing and ensure thorough coverage from the beginning of the test cycle.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Junior Accessibility Tester -->
+            <div class="job">
+                <h3 class="job-title">
+                    <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    Junior Accessibility Tester
+                </h3>
+                <div class="company-info">
+                    <div class="company-name">
+                        <span class="company-logo" aria-hidden="true">
+                            <i class="fas fa-building"></i>
+                        </span>
+                        <a href="https://www.hcltech.com" target="_blank" class="company-link">HCLTech</a> | 
+                        Client: <a href="https://www.microsoft.com" target="_blank" class="company-link">Microsoft</a>
+                    </div>
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+							<span class="sr-only" >Employed from May 2018 to September 2020. The job was based in Hyderabad, India.</span>
+                            <span aria-hidden="true">May 2018 - September 2020 | Hyderabad, India.</span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li class="job-bullet">Received specialized training in Accessibility Testing, enabling effective evaluation of digital content for users with disabilities and supporting WCAG-compliant project delivery.</li>
+                        <li class="job-bullet">Performed accessibility testing on various Microsoft applications using various assistive technologies in accordance with Microsoft accessibility standards[MAS].</li>
+                        <li class="job-bullet">Tested applications on diverse platforms such as macOS, Windows, iOS, and Android.</li>
+                        <li class="job-bullet">Reported and tracked defects in Azure DevOps (ADO) and Excel.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                CERTIFICATIONS
+            </h2>
+            <ul class="certifications">
+                <li class="cert-badge">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                    DHS Section 508 Certified Trusted Tester
+                </li>
+                <li class="cert-badge">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                    Accessibility Advocate - IBM
+                </li>
+                <li class="cert-badge">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                    Foundations of Accessible E-learning - LinkedIn
+                </li>
+                <li class="cert-badge">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                    Advancing Accessibility - IBM
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Key Contributions -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                KEY CONTRIBUTIONS AT ALBERTSONS
+            </h2>
+            <div class="section-content">
+                <ul class="contributions-list">
+                    <li>Performed accessibility testing across multiple PODs, including Account & Identity, Schedule & Save, Loyalty Rewards, Episodic Games, Cart & Checkout, Payments, Home & Navigation, Web Product, Marketing Personalization, FreshPass, Collective Banners, and Search & Browse.</li>
+                    <li>Collaborated with dev teams from Schedule & Save, Account & Identity, and Loyalty Rewards to support triage calls and clarify defect findings.</li>
+                    <li>Appreciated by the Loyalty Rewards team for weekend support during tight release timelines. Recognized for completing high-priority ad-hoc accessibility tasks efficiently.</li>
+                    <li>Helped reduce recurring issues by highlighting common defects and developer mistakes in Account & Identity POD.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Digital Accessibility Engineer Resume | Created with HTML & CSS</p>
+            <p class="no-print">Last updated: July 2025 | WCAG 2.1 AA Compliant</p>
+        </footer>
+    </div>
+</body>
+</html>
